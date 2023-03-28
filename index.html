@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tab 1</title>
+  </head>
+  <body>
+    <h1>Tab 1</h1>
+    <input type="text" id="messageInput" placeholder="Type a message...">
+    <button id="sendButton">Send</button>
+    <script>
+      const channel = new BroadcastChannel('myChannel');
+      const sendButton = document.getElementById('sendButton');
+      const messageInput = document.getElementById('messageInput');
+
+      sendButton.addEventListener('click', () => {
+        const message = messageInput.value;
+        channel.postMessage(message);
+        console.log(`Tab 1 sent message: ${message}`);
+      });
+    </script>
+  </body>
+</html>
